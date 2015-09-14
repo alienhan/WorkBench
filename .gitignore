@@ -1,2 +1,8 @@
+#juno ignore 
 /JunoWorkspace/.metadata/
+
+#myeclipse ignore
 /MyEclipseWorkspace/.metadata/
+
+#mars ignore
+/Mars/.metadata
