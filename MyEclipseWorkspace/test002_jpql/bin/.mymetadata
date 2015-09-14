@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="test002_jpql"
+  id="myeclipse.1440488693844"
+  context-root="/test002_jpql"
+  j2ee-spec="5.0"
+  archive="test002_jpql.war">
+  <attributes>
+    <attribute name="webrootdir" value="/src/main/webapp" />
+  </attributes>
+</project-module>
+

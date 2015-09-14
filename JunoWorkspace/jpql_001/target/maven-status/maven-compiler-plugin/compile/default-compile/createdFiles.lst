@@ -1,0 +1,6 @@
+beans\MyUser.class
+beans\Person.class
+dao\PersonDao.class
+dao\UserDaoTest.class
+dao\UserDaoTest2.class
+dao\UserDao.class

@@ -1,0 +1,4 @@
+com\jh\controller\AjaxController.class
+com\jh\vo\Person.class
+com\jh\controller\ParamController.class
+com\jh\controller\PathController.class
