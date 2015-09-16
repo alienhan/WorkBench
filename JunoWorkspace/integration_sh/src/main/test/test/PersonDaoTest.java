@@ -14,6 +14,14 @@ import org.junit.Test;
 import com.jh.beans.Person;
 import com.jh.dao.PersonDao;
 
+/** 
+ * 	增 删 改 查
+ *
+ * @ClassName: PersonDaoTest 
+ * @author jh 
+ * @date 2015-9-14 下午3:00:40 
+ *  
+ */
 public class PersonDaoTest {
 
 	//@Test
@@ -26,17 +34,58 @@ public class PersonDaoTest {
 		personDao.savePerson(person);
 	}
 	
-	@Test
+	//@Test
+	public void testUpdatePersonByMerge(){
+		Person person = new Person();
+		PersonDao personDao = new PersonDao();
+		person.setId(1);
+		person.setName("李四2");
+		personDao.updatePersonByMerge(person);
+		
+	}
+	
+	//@Test
 	public void testUpdatePerson(){
 		Person person = new Person();
 		PersonDao personDao = new PersonDao();
 		person.setId(1);
-		person.setName("李四");
-		personDao.savePerson(person);
-		
+		person.setName("李四5");
+		personDao.updatePerson(person);
 	}
 	
+	//@Test
+	public void testDeletePerson(){
+		Person person = new Person();
+		PersonDao personDao = new PersonDao();
+		person.setId(1);
+		personDao.deletePerson(person);
+	}
 	
+	//@Test
+	public void testSelectPersonByIdAndFind(){
+		Person person = new Person();
+		PersonDao personDao = new PersonDao();
+		person.setId(2);
+		Person personParam = personDao.selectPersonByIdAndFind(person);
+		System.out.println("person name: " + personParam.getName());
+	}
 	
+	//@Test
+	public void testSelectPersonByIdAndgetReference(){
+		Person person = new Person();
+		PersonDao personDao = new PersonDao();
+		person.setId(2);
+		Person personParam = personDao.selectPersonByIdAndgetReference(person);
+		System.out.println("person name: " + personParam.getName());
+	}
+	
+	@Test
+	public void testTestEm(){
+		Person person = new Person();
+		PersonDao personDao = new PersonDao();
+		person.setId(2);
+		Person personParam = personDao.testEm(person);
+		System.out.println("person name: " + personParam.getName());
+	}
 
 }

@@ -1,8 +1,11 @@
 #juno ignore 
 /JunoWorkspace/.metadata/
+/JunoWorkspace/Servers/
 
 #myeclipse ignore
 /MyEclipseWorkspace/.metadata/
+/MyEclipseWorkspace/Servers/
 
 #mars ignore
-/Mars/.metadata
+/Mars/.metadata/
+/Mars/Servers/

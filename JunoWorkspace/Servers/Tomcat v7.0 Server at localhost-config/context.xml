@@ -29,5 +29,16 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
+    
+    <Resource
+            name="jdbc/pss"
+            type="javax.sql.DataSource"
+            driverClassName="oracle.jdbc.driver.OracleDriver"
+            url="jdbc:oracle:thin:@10.1.8.217:1521:sck"
+            username="PSS"
+            password="xdrcft56"
+            maxIdle="2"
+            maxWait="5000"
+            maxActive="4" />
 
 </Context>
