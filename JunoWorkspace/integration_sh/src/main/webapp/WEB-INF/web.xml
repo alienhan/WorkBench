@@ -4,10 +4,17 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+	
 	<!-- 指定Spring Bean的配置文件所在目录。默认配置在WEB-INF目录下 -->
+	<!-- 配置Context -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>WEB-INF/spring-servlet.xml</param-value>
+		<param-value>classpath:spring-servlet.xml</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring-context.xml</param-value>
 	</context-param>
 
 	<!-- 加载applicationContext.xml -->
@@ -25,7 +32,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring-servlet.xml</param-value>
+			<param-value>classpath:spring-context.xml, classpath:spring-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

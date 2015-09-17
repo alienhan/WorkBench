@@ -1,6 +1,7 @@
 #juno ignore 
 /JunoWorkspace/.metadata/
 /JunoWorkspace/Servers/
+/JunoWorkspace/integration_sh/.settings/
 
 #myeclipse ignore
 /MyEclipseWorkspace/.metadata/

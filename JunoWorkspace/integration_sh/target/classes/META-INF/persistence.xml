@@ -6,6 +6,8 @@
 
 	<persistence-unit name="itcast" transaction-type="RESOURCE_LOCAL">
 
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<!-- 配置驱动类，当ctrl + 点击  可以连接到相应的类时就是可以加载 -->

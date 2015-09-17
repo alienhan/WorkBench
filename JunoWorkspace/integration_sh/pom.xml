@@ -18,7 +18,36 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>3.1.1.RELEASE</version>
+			<version>4.1.7.RELEASE</version>
+			<!-- 3.1.1.RELEASE -->
+		</dependency>
+
+		<!-- spring transaction -->
+		<!-- 用于事务管理 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>4.1.7.RELEASE</version>
+		</dependency>
+
+		<!-- aspect -->
+		<dependency>
+			<groupId>aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+		
+		<!-- orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.1.7.RELEASE</version>
 		</dependency>
 
 		<!-- jsp -->
@@ -53,7 +82,7 @@
 			<artifactId>jta</artifactId>
 			<version>1.1</version>
 		</dependency>
-			<!-- persistence -->
+		<!-- persistence -->
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -69,7 +98,7 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.2.1.ga</version>
 		</dependency>
-			<!-- mysql connect -->
+		<!-- mysql connect -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

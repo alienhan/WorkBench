@@ -15,7 +15,9 @@
 	
 	<a href="ajax/ajaxlogin">ajax</a><br/>
 	
-	<a href="user/user_request">integration demo user</a>
+	<a href="user/user_request">integration demo user</a><br/>
+	
+	<a href="person/person_request">person</a><br/>
 </body>
 </html>
 
