@@ -11,5 +11,6 @@
 	<a href="testEm?id=12&name=mark1">testEm</a><br/>
 	<a href="select_person_JPQL">select_person_JPQL</a><br/>
 	<a href="page?pageNo=0">page</a><br/>
+	<a href="testLog">testLog</a><br/>
 </body>
 </html>

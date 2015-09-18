@@ -346,10 +346,11 @@ public class PersonDao {
 		int pageSize = condition.getPage().getPageSize();
 		String jpqlparam = condition.getJpql();
 		
-		if(StringUtils.isEmpty(jpqlparam)){
-			condition.setStatus(false);
-			return condition;
-		}
+		//
+		// if(StringUtils.isEmpty(jpqlparam)){
+		// condition.setStatus(false);
+		// return condition;
+		// }
 		if(pageNo < 1){
 			pageNo = 1;
 		}
@@ -357,7 +358,7 @@ public class PersonDao {
 			pageSize = Page.DEFAULT_PAGE_SIZE;
 		}
 		
-		String jpql = "select p from Person P order by p.id";
+		String jpql = "select p from Person p order by p.id";
 		Query query = entityManager.createQuery(jpql);
 		
 		// 设置查询结果的开始记录数（从0开始计数）

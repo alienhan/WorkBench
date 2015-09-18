@@ -11,6 +11,7 @@ package com.jh.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,8 @@ import com.jh.util.Page;
 
 @Controller
 public class PersonController {
+	
+	private final Logger logger = Logger.getLogger(PersonController.class);
 	
 	@Autowired
 	PersonService personService;
@@ -80,6 +83,7 @@ public class PersonController {
 	 */
 	@RequestMapping("person/page")
 	public String page(Page page, Model model){
+		
 		Condition<Person> condition = new Condition<Person>();
 		condition.setPage(page);
 		Condition<Person> conditionParam = personService.selectPersonWithPage(condition);
@@ -87,6 +91,13 @@ public class PersonController {
 		model.addAttribute("conditionParam", conditionParam);
 		return "person/person_page";
 	}
+	
+	@RequestMapping("person/testLog")
+	public String testLog(Model model){
+		logger.info("-------------------------------page");
+		return "person/person_response";
+	}
+	
 }
 
 
