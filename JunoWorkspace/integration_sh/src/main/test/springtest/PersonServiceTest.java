@@ -9,6 +9,7 @@
 -------------------------------------------------------------------------*/
 package springtest;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jh.beans.Person;
+import com.jh.controller.PersonController;
 import com.jh.service.PersonService;
 
 
@@ -55,6 +57,8 @@ import com.jh.service.PersonService;
 		TransactionalTestExecutionListener.class })
 public class PersonServiceTest {
 
+	private final Logger logger = Logger.getLogger(PersonServiceTest.class);
+	
 	@Autowired
 	private PersonService personService;
 
@@ -78,8 +82,11 @@ public class PersonServiceTest {
 
 	@Test
 	public void testTestJunit() {
+		System.out.println("------------------------");
+		logger.info("mark1");
+		logger.debug("debug mark2");
 		Person person = new Person();
-		person.setName("穆18六");
+		person.setName("穆19六");
 		personService.savePerson(person);
 	}
 
