@@ -50,6 +50,13 @@
 			<version>4.1.7.RELEASE</version>
 		</dependency>
 
+		<!-- spring test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.1.7.RELEASE</version>
+		</dependency>
+
 		<!-- jsp -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>

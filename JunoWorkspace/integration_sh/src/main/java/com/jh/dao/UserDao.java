@@ -48,6 +48,7 @@ public class UserDao {
 	 * 
 	 * @param myUser
 	 */
+	@SuppressWarnings("unused")
 	public void getUser2(MyUser myUser) {
 		EntityManagerFactory factory = Persistence
 				.createEntityManagerFactory("itcast");

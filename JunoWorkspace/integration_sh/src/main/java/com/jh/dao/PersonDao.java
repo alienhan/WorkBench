@@ -9,9 +9,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
-
-
 import com.jh.beans.Person;
 import com.jh.util.Condition;
 import com.jh.util.Page;
@@ -19,24 +16,23 @@ import com.jh.util.Page;
 /**
  * 增 删 改 查
  * 
- * @Repository spring 用于注解数据访问层
- * 用于标注数据访问组件，即DAO组件
+ * @Repository spring 用于注解数据访问层 用于标注数据访问组件，即DAO组件
  * 
- * 在JPA中，所有的Entity都是通过javax.persistence.EntityManager的API来管理和操纵的
- * 当EntityManager管理Entity时，所有的Entity都会有一个唯一标识（这个标识通常是主键列），
- * Entity的状态将会和数据库同步。当Entity脱离EntityManager的管理时，
- * Entity就变成了一个普通的Java对象实例，这时它的状态是detached(分离的)。
+ *             在JPA中，所有的Entity都是通过javax.persistence.EntityManager的API来管理和操纵的
+ *             当EntityManager管理Entity时，所有的Entity都会有一个唯一标识（这个标识通常是主键列），
+ *             Entity的状态将会和数据库同步。当Entity脱离EntityManager的管理时，
+ *             Entity就变成了一个普通的Java对象实例，这时它的状态是detached(分离的)。
  * 
- * 当我们用new关键字创建一个新Entity时，这个Entity对象存在于内存中，JPA对它没有任何了解。
- * 只有当EntityManager开始管理它时，它的状态才会和数据库同步。当调用了EntityManager.remove方法后，
- * 它就会从数据库中删除掉，但Java对象还会在内存中存在，直到被垃圾回收掉。 
+ *             当我们用new关键字创建一个新Entity时，这个Entity对象存在于内存中，JPA对它没有任何了解。
+ *             只有当EntityManager开始管理它时，它的状态才会和数据库同步。当调用了EntityManager.remove方法后，
+ *             它就会从数据库中删除掉，但Java对象还会在内存中存在，直到被垃圾回收掉。
  * 
- * 每个事物用户都有自己的Persistence Context，多个Persistence Context访问同一个数据库的实例
+ *             每个事物用户都有自己的Persistence Context，多个Persistence Context访问同一个数据库的实例
  * 
- * 如果我们想将对Persistence Context中数据改变立刻反映到数据库中，
- * 可以通过调用flush方法实现。或者我们想将数据库中的数据重新同步回Persistence Context，
- * 可以调用refresh方法。当应用程序在叫用了flush方法后，又调用了rollback方法，所有同步到数据库的数据又会都被回滚。 
- * 在调用flush方法时，变化已经被同步到数据库中了，即SQL语句已经被执行了。
+ *             如果我们想将对Persistence Context中数据改变立刻反映到数据库中，
+ *             可以通过调用flush方法实现。或者我们想将数据库中的数据重新同步回Persistence Context，
+ *             可以调用refresh方法。当应用程序在叫用了flush方法后，又调用了rollback方法，所有同步到数据库的数据又会都被回滚。
+ *             在调用flush方法时，变化已经被同步到数据库中了，即SQL语句已经被执行了。
  * 
  * 
  * @ClassName: PersonDao
@@ -56,11 +52,12 @@ public class PersonDao {
 	@PersistenceContext(unitName = "itcast")
 	protected EntityManager em;
 
-	
-	//But when using spring's transaction and entity manager support,
-	//you don't need the EntityManagerFactory at all.
-	/*@PersistenceContext(unitName = "itcast")
-	private EntityManagerFactory entityManagerFactory;*/
+	// But when using spring's transaction and entity manager support,
+	// you don't need the EntityManagerFactory at all.
+	/*
+	 * @PersistenceContext(unitName = "itcast") private EntityManagerFactory
+	 * entityManagerFactory;
+	 */
 
 	private EntityManager entityManager = Persistence
 			.createEntityManagerFactory("itcast").createEntityManager();
@@ -81,6 +78,7 @@ public class PersonDao {
 	 * 
 	 */
 	public void savePerson(Person person) {
+		System.out.println("----------------" + person.getName());
 		EntityManagerFactory factory = Persistence
 				.createEntityManagerFactory("itcast");
 		EntityManager em = factory.createEntityManager();
@@ -225,25 +223,6 @@ public class PersonDao {
 	}
 
 	/**
-	 * no pass
-	 * 
-	 * test @PersistenceContext()
-	 * 
-	 * @Title: testEm
-	 * @Author: jianghan
-	 * @param person
-	 * @return
-	 * 
-	 */
-	public Person testEm(Person person) {
-		Person personParam = new Person();
-		//当使用spring 事务管理就不能再用em的事务管理了
-		//em.getTransaction().begin();
-		personParam = em.find(Person.class, person.getId());
-		return personParam;
-	}
-
-	/**
 	 * no pass 通过jpql语句添加数据
 	 * 
 	 * @Title: savePersonByJPQL
@@ -277,31 +256,30 @@ public class PersonDao {
 		// no param
 		Query query = entityManager.createQuery(updateJpql);
 		int countRecord = query.executeUpdate();
-		
+
 		// param
 		Query query2 = entityManager.createQuery(uodateJpqlByParam);
 		query2.setParameter(1, person.getName());
 		query2.setParameter(2, person.getId());
-		//int countRecord2 = query2.executeUpdate();
+		// int countRecord2 = query2.executeUpdate();
 		entityManager.getTransaction().commit();
 		return countRecord;
 
 	}
-	
-	/** 
+
+	/**
 	 * delete by jpql param
 	 * 
-	 * error:
-	 * javax.persistence.TransactionRequiredException: Executing an update/delete query
-	 * 没有开启事务
-	 *
-	 * @Title: deletePersonByJPQL 
+	 * error: javax.persistence.TransactionRequiredException: Executing an
+	 * update/delete query 没有开启事务
+	 * 
+	 * @Title: deletePersonByJPQL
 	 * @Author: jianghan
 	 * @param person
 	 * @return
-	 *    
+	 * 
 	 */
-	public int deletePersonByJPQL(Person person){
+	public int deletePersonByJPQL(Person person) {
 		String deleteJpql = "delete from Person p where p.name=?1";
 		entityManager.getTransaction().begin();
 		Query query = entityManager.createQuery(deleteJpql);
@@ -310,73 +288,99 @@ public class PersonDao {
 		entityManager.getTransaction().commit();
 		return countRecord;
 	}
-	
-	/** 
+
+	/**
 	 * select list
-	 *
-	 * @Title: selectPersonJPQL 
+	 * 
+	 * @Title: selectPersonJPQL
 	 * @Author: jianghan
 	 * @return
-	 *    
+	 * 
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Person> selectPersonJPQL(){
+	public List<Person> selectPersonJPQL() {
 		String selectJpql = "from Person p";
 		entityManager.getTransaction().begin();
 		Query query = entityManager.createQuery(selectJpql);
 		List<Person> personList = query.getResultList();
 		entityManager.getTransaction().commit();
 		return personList;
-		
+
 	}
-	
-	/** 
+
+	/**
 	 * 分页
-	 *
-	 * @Title: selectPersonWithPage 
+	 * 
+	 * @Title: selectPersonWithPage
 	 * @Author: jianghan
 	 * @param condition
 	 * @return
-	 *    
+	 * 
 	 */
 	@SuppressWarnings("unchecked")
-	public Condition<Person> selectPersonWithPage(Condition<Person> condition){
+	public Condition<Person> selectPersonWithPage(Condition<Person> condition) {
 		Condition<Person> conditionParam = new Condition<Person>();
 		int pageNo = condition.getPage().getPageNo();
 		int pageSize = condition.getPage().getPageSize();
-		String jpqlparam = condition.getJpql();
-		
-		//
+
+		// String jpqlparam = condition.getJpql();
 		// if(StringUtils.isEmpty(jpqlparam)){
 		// condition.setStatus(false);
 		// return condition;
 		// }
-		if(pageNo < 1){
+		if (pageNo < 1) {
 			pageNo = 1;
 		}
-		if(pageSize < 1){
+		if (pageSize < 1) {
 			pageSize = Page.DEFAULT_PAGE_SIZE;
 		}
-		
+
 		String jpql = "select p from Person p order by p.id";
 		Query query = entityManager.createQuery(jpql);
-		
+
 		// 设置查询结果的开始记录数（从0开始计数）
-		int firstResult =(pageNo - 1) * pageSize;
+		int firstResult = (pageNo - 1) * pageSize;
 		query.setFirstResult(firstResult);
 		// 设置查询结果的结束记录数
 		query.setMaxResults(pageSize);
-		
+
 		List<Person> personList = query.getResultList();
-		conditionParam.setList(personList) ;
-		Page page = new Page(personList.size(),pageNo,pageSize);
+		conditionParam.setList(personList);
+		Page page = new Page(personList.size(), pageNo, pageSize);
 		conditionParam.setPage(page);
-		
+
 		return conditionParam;
 	}
+
+	
+	/** 
+	 * 
+	 *
+	 * @Title: testEm 
+	 * @Author: jianghan
+	 * @param person
+	 * @return
+	 *    
+	 */
+	public Person testEm(Person person) {
+		Person personParam = new Person();
+		// 当使用spring 事务管理就不能再用em的事务管理了
+		// em.getTransaction().begin();
+		personParam = em.find(Person.class, person.getId());
+		return personParam;
+	}
+
+	/**
+	 * test Junit spring 整合 Junit 单元测试
+	 * 
+	 * 一个事务最好不要对一个表进行多次insert等操作。
+	 * 
+	 * @Title: testJunit
+	 * @Author: jianghan
+	 * @param person
+	 * 
+	 */
+	public void testJunit(Person person) {
+		em.persist(person); // 持久化实体
+	}
 }
-
-
-
-
-
