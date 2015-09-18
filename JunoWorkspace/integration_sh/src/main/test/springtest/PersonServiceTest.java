@@ -24,6 +24,24 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jh.beans.Person;
 import com.jh.service.PersonService;
 
+
+/**
+ * error: 
+ * 		java.lang.UnsupportedClassVersionError: javax/servlet/ServletContext :
+ * 		Unsupported major.minor version 51.0	
+ * solution:
+ * 		添加@TestExecutionListeners
+ * 
+ *	error:
+ *		当em 非spring生成，transaction会报错 
+ *		
+ *
+ * @ClassName: PersonServiceTest 
+ * @author jh 
+ * @date 2015-9-18 下午4:33:33 
+ *  
+ */
+//加载spring 配置文件
 @ContextConfiguration(locations = { "classpath:spring-context.xml",
 		"classpath:spring-servlet.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -61,7 +79,7 @@ public class PersonServiceTest {
 	@Test
 	public void testTestJunit() {
 		Person person = new Person();
-		person.setName("穆12六");
+		person.setName("穆18六");
 		personService.savePerson(person);
 	}
 
