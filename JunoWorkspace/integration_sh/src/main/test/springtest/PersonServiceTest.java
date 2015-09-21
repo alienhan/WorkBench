@@ -23,7 +23,6 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jh.beans.Person;
-import com.jh.controller.PersonController;
 import com.jh.service.PersonService;
 
 

@@ -12,5 +12,6 @@
 	<a href="select_person_JPQL">select_person_JPQL</a><br/>
 	<a href="page?pageNo=0">page</a><br/>
 	<a href="testLog">testLog</a><br/>
+	<a href="testTiles">testTiles</a><br/>
 </body>
 </html>

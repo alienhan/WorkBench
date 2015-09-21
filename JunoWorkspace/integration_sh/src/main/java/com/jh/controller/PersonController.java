@@ -98,6 +98,11 @@ public class PersonController {
 		return "person/person_response";
 	}
 	
+	@RequestMapping("person/testTiles")
+	public String testTiles(){
+		return "person/testTiles";
+	}
+	
 }
 
 
