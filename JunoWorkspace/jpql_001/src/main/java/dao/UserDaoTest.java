@@ -1,7 +1,5 @@
 package dao;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
 import beans.MyUser;

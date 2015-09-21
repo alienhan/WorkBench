@@ -46,7 +46,7 @@ public class UserDao {
 				.createEntityManagerFactory("itcast");
 		EntityManager em = factory.createEntityManager();
 		MyUser user2 = em.find(MyUser.class, myUser.getUserid());
-		// System.out.println("mark1" +user2.getUsername());
+		System.out.println("mark1" +user2.getUsername());
 	}
 
 	/**
