@@ -1,0 +1,5 @@
+#juno core ignore 
+/core/.settings/
+/core/target/
+/core/.classpath
+/core/.project

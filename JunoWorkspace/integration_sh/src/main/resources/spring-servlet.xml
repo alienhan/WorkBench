@@ -32,7 +32,7 @@
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
 	<!-- Tiles配置及其相关视图解释类定义 -->
-	<bean id="viewResolver"
+	<!-- <bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="order" value="1" />
 		<property name="viewClass"
@@ -45,7 +45,7 @@
 				<value>classpath:tiles.xml</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- 默认视图解析器 -->
 	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
