@@ -6,7 +6,9 @@
 	<Local Expanded="Yes">
 		<Model ID="{2DA63897-A1CC-4662-A4A1-809BE97D59AA}" Loaded="No" Name="PhysicalDataModel_1" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="PhysicalDataModel_1.pdm"/>
 		<Model Expanded="Yes" ID="{957E028D-246F-4443-B05C-FC5D64C5E01E}" Loaded="No" Name="PhysicalDataModel_2" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="PhysicalDataModel_2.pdm"/>
-		<Model Expanded="Yes" ID="{7CAC69E2-F7DD-448C-BFA8-3BCA1ADBCB86}" Name="core" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="core.pdm"/>
+		<Model Expanded="Yes" ID="{7CAC69E2-F7DD-448C-BFA8-3BCA1ADBCB86}" Loaded="No" Name="core" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="core.pdm"/>
+		<Model Expanded="Yes" ID="{1E368A2E-6AFD-4D07-89E8-C4A324C6D19F}" Loaded="No" Name="徐汇招商" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="file:///D|/project/徐汇招商/徐汇招商.pdm"/>
+		<Model Expanded="Yes" ID="{1E368A2E-6AFD-4D07-89E8-C4A324C6D19F}" Name="徐汇招商" OpenedReadOnly="Yes" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="file:///C|/Users/jhon/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/NU75GNIS/徐汇招商 (3).pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

@@ -38,13 +38,24 @@
 	<!-- 开启@AspectJ支持 -->
 	<aop:aspectj-autoproxy />
 	
+	<!-- 从文件中读取配置 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+	
 	<!-- 需要pom单独引用spring-orm jar包 -->
 	<!-- JPA工厂管理 -->
 	<!-- LocalContainerEntityManagerFactoryBean 会自动检测 persistence units ，
  		实际上，就是META-INF/persistence.xml（/WEB-INF/classes/META-INF） 文件和web.xml中的persistence-unit-ref，
  		以及定义的environment naming -->
  	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
- 		<property name="persistenceUnitName" value="itcast" />
+ 		<property name="persistenceUnitName" value="${persistence.unit.name}" />
  	</bean>
 
 	<!-- JPA事务管理 -->
